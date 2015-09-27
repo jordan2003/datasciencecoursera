@@ -2,14 +2,14 @@
 
 
 #Installing and Loading the Downloader package for ease of use.
-#install.packages("downloader")
-#require(downloader)
-#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
-#unzip(zipfile="Dataset.zip")
+install.packages("downloader")
+require(downloader)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
+unzip(zipfile="Dataset.zip")
 
 # Installing and Loading the required Lobrary Needed at the end
-#install.packages("plyr")
-#library(plyr);
+install.packages("plyr")
+library(plyr);
 
 #Read all the unCompressed needed files into tables
 
@@ -25,8 +25,6 @@ feature_test  <- read.table(("./UCI HAR Dataset/test/X_test.txt" ),header = FALS
 #str(activ_test)
 
 
-
-
 #1.Merges the training and the test sets to create one data set
 subject <- rbind(subject_train, subject_test)
 activity<- rbind(activ_train, activ_test)
@@ -37,8 +35,6 @@ features_name <- read.table(("./UCI HAR Dataset/features.txt"),head=FALSE)
 names(features)<- features_name$V2
 dataCombine <- cbind(subject, activity)
 Data <- cbind(features, dataCombine)
-
-
 
 #2.Extracts only the measurements on the mean and standard deviation for each measurement. 
 s_features_name<-features_name$V2[grep("mean\\(\\)|std\\(\\)", features_name$V2)]
