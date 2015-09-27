@@ -9,3 +9,6 @@ the few first lines of the "run_analysis.R" will install and load the libraries 
  #require(downloader) 
  #install.packages("plyr") 
  
+ 
+ the file will download the zip file in the current working Directory and unzip the contents is the "UCI HAR Dataset" folder name.
+ Then it follows by reading each of them and starts cleaning and tiding up the data
